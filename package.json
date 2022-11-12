@@ -9,7 +9,6 @@
     },
     "private": true,
     "dependencies": {
-        "@react-native-firebase/app": "^16.4.3",
         "react": "18.1.0",
         "react-native": "0.70.1",
         "tslib": "^2.3.0"

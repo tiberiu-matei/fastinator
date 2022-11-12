@@ -1,5 +1,4 @@
 apply plugin: "com.android.application"
-apply plugin: "com.google.gms.google-services"
 apply from: project(':react-native-config').projectDir.getPath() + "/dotenv.gradle"
 
 import com.android.build.OutputFile
@@ -150,6 +149,7 @@ android {
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
         missingDimensionStrategy 'detox', 'full'
         
+
         if (isNewArchitectureEnabled()) {
             // We configure the CMake build only if you decide to opt-in for the New Architecture.
             externalNativeBuild {
@@ -269,8 +269,6 @@ dependencies {
 
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.0.0"
 
-    implementation platform('com.google.firebase:firebase-bom:31.0.2')
-
     debugImplementation("com.facebook.flipper:flipper:${FLIPPER_VERSION}") {
         exclude group:'com.facebook.fbjni'
     }
@@ -293,7 +291,9 @@ dependencies {
         implementation jscFlavor
     }
 
+    
     androidTestImplementation(project(path: ":detox"))
+    
 }
 
 if (isNewArchitectureEnabled()) {
