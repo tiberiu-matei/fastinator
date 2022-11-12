@@ -100,5 +100,7 @@ buck-out/
 **/ios/Pods/
 **/vendor/bundle/
 
+# Firebase
+google-services.json
 
 apps/mobile-e2e/artifacts
