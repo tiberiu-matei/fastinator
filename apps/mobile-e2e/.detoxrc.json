@@ -4,24 +4,24 @@
     "apps": {
         "ios.debug": {
             "type": "ios.app",
-            "build": "cd ../../apps/mobile/ios && xcodebuild -workspace Mobile.xcworkspace -scheme Mobile -configuration Debug -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 13' -derivedDataPath ./build -quiet",
-            "binaryPath": "../../apps/mobile/ios/build/Build/Products/Debug-iphonesimulator/Mobile.app"
+            "build": "cd ../../apps/fastinator/ios && xcodebuild -workspace Fastinator.xcworkspace -scheme Fastinator -configuration Debug -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 13' -derivedDataPath ./build -quiet",
+            "binaryPath": "../../apps/fastinator/ios/build/Build/Products/Debug-iphonesimulator/Fastinator.app"
         },
         "ios.release": {
             "type": "ios.app",
-            "build": "cd ../../apps/mobile/ios && xcodebuild -workspace Mobile.xcworkspace -scheme Mobile -configuration Release -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 13' -derivedDataPath ./build -quiet",
-            "binaryPath": "../../apps/mobile/ios/build/Build/Products/Release-iphonesimulator/Mobile.app"
+            "build": "cd ../../apps/fastinator/ios && xcodebuild -workspace Fastinator.xcworkspace -scheme Fastinator -configuration Release -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 13' -derivedDataPath ./build -quiet",
+            "binaryPath": "../../apps/fastinator/ios/build/Build/Products/Release-iphonesimulator/Fastinator.app"
         },
 
         "android.debug": {
             "type": "android.apk",
-            "build": "cd ../../apps/mobile/android && ./gradlew assembleDebug assembleAndroidTest -DtestBuildType=debug",
-            "binaryPath": "../../apps/mobile/android/app/build/outputs/apk/debug/app-debug.apk"
+            "build": "cd ../../apps/fastinator/android && ./gradlew assembleDebug assembleAndroidTest -DtestBuildType=debug",
+            "binaryPath": "../../apps/fastinator/android/app/build/outputs/apk/debug/app-debug.apk"
         },
         "android.release": {
             "type": "android.apk",
-            "build": "cd ../../apps/mobile/android && ./gradlew assembleRelease assembleAndroidTest -DtestBuildType=release",
-            "binaryPath": "../../apps/mobile/android/app/build/outputs/apk/release/app-release.apk"
+            "build": "cd ../../apps/fastinator/android && ./gradlew assembleRelease assembleAndroidTest -DtestBuildType=release",
+            "binaryPath": "../../apps/fastinator/android/app/build/outputs/apk/release/app-release.apk"
         }
     },
     "devices": {
