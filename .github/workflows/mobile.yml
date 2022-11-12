@@ -1,0 +1,14 @@
+name: mobile
+on: push
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v3
+            - uses: actions/setup-node@v3
+              with:
+                  node-version: 16.x
+            - run: npm ci
+            - run: npx nx lint mobile
+            - run: npx nx test mobile
+            - run: npx nx build-android

@@ -1,4 +1,4 @@
-package com.mobile.newarchitecture.modules;
+package com.fastinator.newarchitecture.modules;
 
 import com.facebook.jni.HybridData;
 import com.facebook.react.ReactPackage;
