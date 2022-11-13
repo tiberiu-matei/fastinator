@@ -38,7 +38,10 @@
                 "{projectRoot}/android/app/build/outputs/bundle",
                 "{projectRoot}/android/app/build/outputs/apk"
             ],
-            "options": {}
+            "options": {
+                "apk": false,
+                "debug": false
+            }
         },
         "bundle-android": {
             "executor": "@nrwl/react-native:bundle",
