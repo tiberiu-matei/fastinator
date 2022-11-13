@@ -8,7 +8,29 @@ jobs:
             - uses: actions/setup-node@v3
               with:
                   node-version: 16.x
+
+            - name: Create google services JSON
+              env:
+                  DATA: ${{ secrets.FIREBASE_GOOGLE_SERVICES }}
+              run: echo $DATA > apps/mobile/android/app/google-services.json
+
+            - name: Create keystore
+              env:
+                  BASE64_STRING: ${{ secrets.ANDROID_SIGNING_KEY_BASE64 }}
+              run: echo -n $BASE64_STRING | base64 -di > apps/mobile/android/app/fastinator.keystore
+
             - run: npm ci
             - run: npx nx lint mobile
             - run: npx nx test mobile
-            - run: npx nx build-android
+            - name: Build
+              env:
+                  ORG_GRADLE_PROJECT_FASTINATOR_UPLOAD_STORE_FILE: fastinator.keystore
+                  ORG_GRADLE_PROJECT_FASTINATOR_UPLOAD_KEY_ALIAS: ${{ secrets.ANDROID_SIGNING_ALIAS }}
+                  ORG_GRADLE_PROJECT_FASTINATOR_UPLOAD_STORE_PASSWORD: ${{ secrets.ANDROID_SIGNING_STORE_PASSWORD }}
+                  ORG_GRADLE_PROJECT_FASTINATOR_UPLOAD_KEY_PASSWORD: ${{ secrets.ANDROID_SIGNING_KEY_PASSWORD }}
+              run: npx nx build-android
+
+            - uses: actions/upload-artifact@v3
+              with:
+                  name: fastinator
+                  path: apps/mobile/android/app/build/outputs/bundle/release/app-release.aab
